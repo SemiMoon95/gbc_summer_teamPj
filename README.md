@@ -1,1 +1,5 @@
-# gbc_summer_teamPj
+# GBC SUMMER TEAM PROJECT (Semi, Hye Young, Harim)
+----------
+newenwenwenwewnenwen
+
+
