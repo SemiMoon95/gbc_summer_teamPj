@@ -1,5 +1,21 @@
 # GBC SUMMER TEAM PROJECT (Semi, Hye Young, Harim)
-----------
-newenwenwenwewnenwen
+
+## Project Title: 
+
+- Why: 
+
+- What: 
+
+- Where: 
+
+- When: 
+
+- Who: 
+
+- How: 
+
+-----------------
+
+
 
 
