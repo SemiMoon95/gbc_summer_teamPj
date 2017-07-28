@@ -1,6 +1,6 @@
-# <center>2017 Summer GBC Project</center>
-<br>
-##Project Name: GBC RUN
+# 2017 Summer GBC Project
+
+## Project Name: GBC RUN
 1. **게임의 스토리**<br>
 Ghost 신입회원인 경환이(임시)는 방학을 맞이하여 동아리 프로그램인 GBC에 참여했다. 경환이는 고스트 정식 회원이 되기 위해 열심히 보고서와 과제를 획득한다. 그러나, 열심히 달리지 않으면 경환이는 다음 학기 GBC를 한 번 더 해야한다.  재이수를 먹이기 위해 쫓아오는 매니저를 피해 경환이는 5주간을 버텨야 하는데…! 과연 경환이의 운명은…?
 
@@ -23,80 +23,16 @@ Ghost 신입회원인 경환이(임시)는 방학을 맞이하여 동아리 프�
 	- ultscreen – 매니저 캐릭터의 컴포넌트로 넣음. 스테이지가 시작할 때 궁극기의 이미지(또는 설명창)가 일정 시간동안 띄워질 수 있도록 함.
 	
 	- PlayerAction<br>
-	1) 1단 점프와 2단 점프 구분<br>
-    bool jumpOn = fasle<br>
-    bool doublejumpOn = false
-
-        2) 입력 들어오면 1단 점프 <br>
-		Input : Button / Space<br>
-      	Output : JumpAction<br>
-    `  if(!jumpOn) if((Input.GetMouseButtonDown(0) || Input.GetButtonDown(“Jump”)))
-      start Coroutine(“JumpAction”);
-`
-<br>
-<br>        2.1) 1단점프 실행시 플레이어 현 위치에서 y축방향으로 jumpPower만큼 증가
-
-        `IEnumerator JumpAction()
-	{ jumpOn = true;
-     tempJump = jumpPower;
-         tempvec.y += tempJump
-         playerTf.position = tempVec;
-      }`
-
-      	2.2) 플레이어의 위치가 0.76f(원래 위치)보다 –0.05f만큼 위치를 감소
-
-    	  `while (tempVec.y > 0.76f)
-      {
-         yield return new WaitForSeconds(0.03f);
-         tempJump -= 0.05f;
-         tempVec.y += tempJump;
-         playerTf.position = tempVec;
-      }`
-
-      	2.3) 플레이어의 위치가 원래위치 인 경우 원래위치로 jumpOn 실행 중지
-
-     	 `tempVec.y = 0.76f;
-      playerTf.position = tempVec;
-      jumpOn = false;`
-
-
-    	  3) 1단 점프하는데 입력 들어오면 2단 점프<br>
-      	Input : JumpOn = true, Button / Space<br>
-      	Output: DoubleJumpAction
-
-      	`if ((jumpOn) && (Input.GetMouseButtonDown (0) || Input.GetButtonDown ("Jump"))) {
-         StartCoroutine ("DoubleJumpAction");
-      }` 
-
-
-      	3.1) 2단점프 실행시 플레이어 현 위치에서 y축방향으로 jumpPower만큼 증가
-
-    	  `IEnumerator DoubleJumpAction()
-      {    
-         doublejumpOn = true;
-         jumpOn = true;
-         tempVec = playerTf.position;
-         tempJump = jumpPower;
-         tempVec.y += tempJump;
-         playerTf.position = tempVec;}`
-
-		3.2) 플레이어의 위치가 0.76f(원래 위치)보다 –0.05f만큼 위치를 감소
-
-      	`while (tempVec.y > 0.76f)
-      {
-         yield return new WaitForSeconds(0.03f);
-         tempJump -= 0.05f;
-         tempVec.y += tempJump;
-         playerTf.position = tempVec;
-      }`
-
-      	3.3) 플레이어의 위치가 원래위치 인 경우 원래위치로 doublejumpOn 실행 중지
-
-      	`tempVec.y = 0.76f;
-      playerTf.position = tempVec;
-      doublejumpOn = false;`
-
-	
+	A) 1단 점프와 2단 점프 구분<br>
+	B) 입력 들어오면 1단 점프 <br>
+		B.1) 1단점프 실행시 플레이어 현 위치에서 y축방향으로 jumpPower만큼 증가<br>
+	      	B.2) 플레이어의 위치가 0.76f(원래 위치)보다 –0.05f만큼 위치를 감소<br>
+      		B.3) 플레이어의 위치가 원래위치 인 경우 원래위치로 jumpOn 실행 중지<br>
+	C) 1단 점프하는데 입력 들어오면 2단 점프<br>
+	      	C.1) 2단점프 실행시 플레이어 현 위치에서 y축방향으로 jumpPower만큼 증가<br>
+		C.2) 플레이어의 위치가 0.76f(원래 위치)보다 –0.05f만큼 위치를 감소<br>
+		C.3) 플레이어의 위치가 원래위치 인 경우 원래위치로 doublejumpOn 실행 중지<br>
+		
 	- start button - 게임 시작을 위한 버튼. button UI로 만들어져 버튼 누를 시, 게임의 첫 번째 단계(first_day scene)으로 넘어간다.
 	
 	- setting button - 게임 일시정지를 위한 버튼. button UI 사용. 버튼 클릭시 게임 일시정지
